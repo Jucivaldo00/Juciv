@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registrar-se | Meu App</title>
+  <link rel="stylesheet" href="Login.css">
+</head>
+<body>
+  <div class="wrapper">
+    <form id="register-form">
+      <h2>Registrar-se</h2>
+      <div class="input-field">
+        <input type="text" id="name" required>
+        <label>Nome</label>
+      </div>
+      <div class="input-field">
+        <input type="email" id="email" required>
+        <label>E-mail</label>
+      </div>
+      <div class="input-field">
+        <input type="password" id="password" required>
+        <label>Senha</label>
+      </div>
+      <button type="submit">Criar Conta</button>
+      <p>Já tem conta? <a href="Login.html">Entrar</a></p>
+    </form>
+  </div>
+
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.8.1/firebase-app.js";
+    import { getAuth, createUserWithEmailAndPassword, updateProfile } from "https://www.gstatic.com/firebasejs/11.8.1/firebase-auth.js";
+
+    const firebaseConfig = {
+  apiKey: "AIzaSyCEPXSVKF8uLlI4i0QkGfWLwPbuh0EOfho",
+  authDomain: "carlos-8c5d9.firebaseapp.com",
+  projectId: "carlos-8c5d9",
+  storageBucket: "carlos-8c5d9.appspot.com",
+  messagingSenderId: "597357447387",
+  appId: "1:597357447387:web:b52505ab3003a95762e4fe",
+  measurementId: "G-96NFYKPTEN"
+};
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+
+    document.getElementById("register-form").addEventListener("submit", async e => {
+      e.preventDefault();
+      const name     = document.getElementById("name").value;
+      const email    = document.getElementById("email").value;
+      const password = document.getElementById("password").value;
+      try {
+        const userCred = await createUserWithEmailAndPassword(auth, email, password);
+        // opcional: grava displayName
+        await updateProfile(userCred.user, { displayName: name });
+        // salva no localStorage e redireciona
+        localStorage.setItem("user", JSON.stringify({
+          name: userCred.user.displayName,
+          photo: userCred.user.photoURL || "default.jpg"
+        }));
+        window.location.href = "Home.html";
+      } catch (err) {
+        alert("Erro ao registrar: " + err.message);
+      }
+    });
+  </script>
+</body>
+</html>

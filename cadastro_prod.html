@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <title>Game Anywhere - Gerenciamento de Produtos</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="cadastro_prod.css">
+</head>
+<body class="bg-primary">
+  <main class="main-container">
+    
+    <!-- Cadastro de Produtos -->
+    <section class="product-section">
+      <div class="form-container">
+        <div class="logo-container">
+          <div class="logo-icon"><i class="fas fa-box-open"></i></div>
+          <span class="logo-text">Game Anywhere</span>
+        </div>
+
+        <nav class="top-nav">
+          <a class="active" href="Home.html">HOME</a>
+        </nav>
+
+        <div class="form-content">
+          <p class="start-free">GERENCIAMENTO DE</p>
+          <h1>CADASTRO DE PRODUTOS</h1>
+          
+          <form class="product-form" onsubmit="return false;">
+            <div class="input-group">
+              <input id="codigo" placeholder="Código" type="text" required/>
+              <i class="fas fa-barcode input-icon"></i>
+            </div>
+
+            <div class="input-group">
+              <input id="produto" placeholder="Nome do Produto" type="text" required/>
+              <i class="fas fa-tag input-icon"></i>
+            </div>
+
+            <div class="input-group">
+              <input id="categoria" placeholder="Categoria" type="text" required/>
+              <i class="fas fa-list input-icon"></i>
+            </div>
+
+            <div class="flex gap-3">
+              <div class="input-group flex-1">
+                <input id="quantidade" placeholder="Quantidade" type="number" required/>
+                <i class="fas fa-boxes input-icon"></i>
+              </div>
+
+              <div class="input-group flex-1">
+                <input id="valor" placeholder="Valor (R$)" type="number" step="0.01" required/>
+                <i class="fas fa-dollar-sign input-icon"></i>
+              </div>
+            </div>
+
+            <button class="submit-btn" id="cadastrarProduto" type="button">
+              <i class="fas fa-plus-circle mr-1"></i> CADASTRAR PRODUTO
+            </button>
+          </form>
+        </div>
+
+        <div class="social-icons">
+          <a aria-label="Suporte" href="#"><i class="fas fa-headset"></i></a>
+          <a aria-label="Relatórios" href="#"><i class="fas fa-chart-bar"></i></a>
+        </div>
+      </div>
+
+      <div class="image-container">
+        <img alt="Produtos de games" src="0.jpg"/>
+      </div>
+    </section>
+
+    <!-- Busca e Atualização -->
+    <section class="product-section">
+      <div class="form-container">
+        <div class="logo-container">
+          <div class="logo-icon"><i class="fas fa-search"></i></div>
+          <span class="logo-text">Game Anywhere</span>
+        </div>
+
+        <nav class="top-nav">
+          <a class="active" href="Home.">HOME</a>
+        </nav>
+
+        <div class="form-content">
+          <p class="start-free">GERENCIAMENTO DE</p>
+          <h1>BUSCA DE PRODUTOS</h1>
+
+          <form class="product-form" onsubmit="return false;">
+            <div class="input-group">
+              <input id="idProduto" placeholder="Digite o Código" type="text" required/>
+              <i class="fas fa-barcode input-icon"></i>
+            </div>
+
+            <button class="submit-btn bg-blue" id="buscarProduto" type="button">
+              <i class="fas fa-search mr-1"></i> BUSCAR PRODUTO
+            </button>
+
+            <div class="input-group">
+              <input id="dadoProduto" placeholder="Nome do Produto" type="text"/>
+              <i class="fas fa-tag input-icon"></i>
+            </div>
+
+            <div class="input-group">
+              <input id="dadoCategoria" placeholder="Categoria" type="text"/>
+              <i class="fas fa-list input-icon"></i>
+            </div>
+
+            <div class="flex gap-3">
+              <div class="input-group flex-1">
+                <input id="dadoQuantidade" placeholder="Quantidade" type="number"/>
+                <i class="fas fa-boxes input-icon"></i>
+              </div>
+
+              <div class="input-group flex-1">
+                <input id="dadoValor" placeholder="Valor (R$)" type="number" step="0.01"/>
+                <i class="fas fa-dollar-sign input-icon"></i>
+              </div>
+            </div>
+
+            <div class="flex gap-3">
+              <button class="submit-btn flex-1 bg-yellow" id="atualizarProduto" type="button">
+                <i class="fas fa-sync-alt mr-1"></i> ATUALIZAR
+              </button>
+
+              <button class="submit-btn flex-1 bg-red" id="deletarProduto" type="button">
+                <i class="fas fa-trash-alt mr-1"></i> DELETAR
+              </button>
+            </div>
+          </form>
+        </div>
+
+        <div class="social-icons">
+          <a aria-label="Suporte" href="#"><i class="fas fa-headset"></i></a>
+          <a aria-label="Relatórios" href="#"><i class="fas fa-chart-bar"></i></a>
+        </div>
+      </div>
+
+      <div class="image-container">
+        <img alt="Busca de produtos" src="01.jpg"/>
+      </div>
+    </section>
+  </main>
+
+  <script type="module" src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<!-- Coding By CodingNepal - www.codingnepalweb.com -->
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Glassmorphism Login Form | CodingNepal</title>
+  <link rel="stylesheet" href="Login.css">
+</head>
+<body>
+  <div class="wrapper">
+    <form action="#">
+      <h2>Login</h2>
+        <div class="input-field">
+        <input type="text" id="email" required>
+        <label>Digite o e-mail</label>
+      </div>
+      <div class="input-field">
+        <input type="password"id="password" required>
+        <label>Digite a senha</label>
+      </div>
+      <div class="forget">
+        <label for="remember">
+          <input type="checkbox" id="remember">
+          <p>Lembrar-me</p>
+        </label>
+        <a href="#">Esqueceu a senha?</a>
+      </div>
+      <button type="submit">Entrar</button>
+      <div class="register">
+  <a href="Home.html" id="skip-login">Registrar-se depois</a>
+</div>
+      <div class="register">
+        <p>Não possui conta? <a href="Cadastra.html">Registrar-se</a></p>
+      </div>
+    </form>
+  </div>
+  <!-- Coloque no final do body -->
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/11.8.1/firebase-app.js";
+  import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.8.1/firebase-analytics.js";
+  import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/11.8.1/firebase-auth.js";
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyCEPXSVKF8uLlI4i0QkGfWLwPbuh0EOfho",
+    authDomain: "carlos-8c5d9.firebaseapp.com",
+    projectId: "carlos-8c5d9",
+    storageBucket: "carlos-8c5d9.firebasestorage.app",
+    messagingSenderId: "597357447387",
+    appId: "1:597357447387:web:b52505ab3003a95762e4fe",
+    measurementId: "G-96NFYKPTEN"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const analytics = getAnalytics(app);
+  const auth = getAuth(app);
+
+  // Escutando o envio do formulário
+  document.querySelector("form").addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    const email = document.getElementById("email").value;
+    const password = document.getElementById("password").value;
+
+    signInWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+        const user = userCredential.user;
+
+        // Salva no localStorage
+        localStorage.setItem("user", JSON.stringify({
+          name: user.displayName || "Usuário",
+          photo: user.photoURL || "default.jpg"
+        }));
+
+        window.location.href = "Home.html";
+      })
+      .catch((error) => {
+        alert("Erro no login: " + error.message);
+      });
+  });
+</script>
+<script>
+  // Ao clicar em "Registrar-se depois", remove o user salvo
+  document.getElementById("skip-login").addEventListener("click", () => {
+    localStorage.removeItem("user");
+  });
+</script>
+</body>
+</html>

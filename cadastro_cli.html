@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Game Anywhere - Gerenciamento de Clientes</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="cadastro_prod.css">
+</head>
+<body>
+  <main class="main-container">
+
+    <!-- Cadastro de Clientes -->
+    <section class="product-section">
+      <div class="form-container">
+        <div class="logo-container">
+          <div class="logo-icon"><i class="fas fa-user-plus"></i></div>
+          <span class="logo-text">Game Anywhere</span>
+        </div>
+
+        <nav class="top-nav">
+          <a class="active" href="Home.html">HOME</a>
+        </nav>
+
+        <div class="form-content">
+          <p class="start-free">GERENCIAMENTO DE</p>
+          <h1>CADASTRO DE CLIENTES</h1>
+
+          <form class="product-form" onsubmit="return false;">
+            <div class="input-group">
+              <input id="cpf" placeholder="CPF" type="text" required/>
+              <i class="fas fa-id-card input-icon"></i>
+            </div>
+
+            <div class="input-group">
+              <input id="cliente" placeholder="Nome do Cliente" type="text" required/>
+              <i class="fas fa-user input-icon"></i>
+            </div>
+
+            <div class="input-group">
+              <input id="email" placeholder="E-mail" type="email" required/>
+              <i class="fas fa-envelope input-icon"></i>
+            </div>
+
+            <div class="input-group">
+              <input id="telefone" placeholder="Telefone" type="tel" required/>
+              <i class="fas fa-phone input-icon"></i>
+            </div>
+
+            <button class="submit-btn" id="cadastrarCliente" type="button">
+              <i class="fas fa-plus-circle mr-1"></i> CADASTRAR CLIENTE
+            </button>
+          </form>
+        </div>
+      </div>
+
+      <div class="image-container">
+        <img src="0.jpg" alt="Cadastro de clientes"/>
+      </div>
+    </section>
+
+    <!-- Busca de Clientes -->
+    <section class="product-section">
+      <div class="form-container">
+        <div class="logo-container">
+          <div class="logo-icon"><i class="fas fa-search"></i></div>
+          <span class="logo-text">Game Anywhere</span>
+        </div>
+
+        <nav class="top-nav">
+          <a class="active" href="Home.html">HOME</a>
+        </nav>
+
+        <div class="form-content">
+          <p class="start-free">GERENCIAMENTO DE</p>
+          <h1>BUSCA DE CLIENTES</h1>
+
+          <form class="product-form" onsubmit="return false;">
+            <div class="input-group">
+              <input id="cpfBusca" placeholder="Digite o CPF" type="text" required/>
+              <i class="fas fa-id-card input-icon"></i>
+            </div>
+
+            <button class="submit-btn bg-blue" id="buscarCliente" type="button">
+              <i class="fas fa-search mr-1"></i> BUSCAR CLIENTE
+            </button>
+
+            <div class="input-group">
+              <input id="nomeCliente" placeholder="Nome do Cliente" type="text"/>
+              <i class="fas fa-user input-icon"></i>
+            </div>
+
+            <div class="input-group">
+              <input id="emailCliente" placeholder="E-mail" type="email"/>
+              <i class="fas fa-envelope input-icon"></i>
+            </div>
+
+            <div class="input-group">
+              <input id="telefoneCliente" placeholder="Telefone" type="tel"/>
+              <i class="fas fa-phone input-icon"></i>
+            </div>
+
+            <div class="flex gap-3">
+              <button class="submit-btn flex-1 bg-yellow" id="atualizarCliente" type="button">
+                <i class="fas fa-sync-alt mr-1"></i> ATUALIZAR
+              </button>
+
+              <button class="submit-btn flex-1 bg-red" id="deletarCliente" type="button">
+                <i class="fas fa-trash-alt mr-1"></i> DELETAR
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <div class="image-container">
+        <img src="01.jpg" alt="Busca de clientes"/>
+      </div>
+    </section>
+
+  </main>
+
+  <script type="module" src="cliente.js"></script>
+</body>
+</html>
